@@ -11,6 +11,9 @@ public class Plant : MonoBehaviour
     public int Cost => cost;
     public int Value => baseValue;
     public bool ReadyToSell => waterLevel == waterRequired;
+    public string Name => gameObject.name;
+    public int WaterLevel => waterLevel;
+    public int WaterRequired => waterRequired;
 
     public void Water()
     {

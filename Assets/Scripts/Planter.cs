@@ -8,6 +8,7 @@ public class Planter : MonoBehaviour
     [SerializeField] private PlantControls plantControls;
     [SerializeField] private TMP_Text coinsText;
     [SerializeField] private TMP_Text modeText;
+    [SerializeField] private PlantTooltip plantTooltip;
     [SerializeField] private int potCost;
 
     private Collider currentCollider;
@@ -109,6 +110,29 @@ public class Planter : MonoBehaviour
         }
     }
 
+    private void ProcessHover()
+    {
+        if (currentCollider == null)
+        {
+            plantTooltip.Close();
+            return;
+        }
+
+        Pot pot = currentCollider.GetComponent<Pot>();
+        if (pot != null)
+        {
+            plantTooltip.PlantName = pot.PottedPlant != null ? pot.PottedPlant.Name : "Pot";
+            plantTooltip.WaterLevel = pot.PottedPlant != null
+                ? (pot.PottedPlant.WaterLevel, pot.PottedPlant.WaterRequired)
+                : (0, -1);
+            plantTooltip.Open();
+        }
+        else
+        {
+            plantTooltip.Close();
+        }
+    }
+
     private void ProcessPot(Pot pot)
     {
         if (activeTool == Tool.PotPlacer && !pot.Placed)
@@ -147,6 +171,8 @@ public class Planter : MonoBehaviour
     private void Update()
     {
         UpdateCollider();
+
+        ProcessHover();
 
         if (Input.GetButtonDown("Cancel"))
         {

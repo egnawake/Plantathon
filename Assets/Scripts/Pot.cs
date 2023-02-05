@@ -11,6 +11,7 @@ public class Pot : MonoBehaviour
 
     public bool Placed { get; private set; }
     public bool Planted => pottedPlant != null;
+    public Plant PottedPlant => pottedPlant;
 
     public void Place()
     {
