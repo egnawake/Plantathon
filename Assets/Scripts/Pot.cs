@@ -34,7 +34,8 @@ public class Pot : MonoBehaviour
         if (!planter.Buy(plant.Cost))
             return;
 
-        pottedPlant = Instantiate(plant, plantPivot.transform.position, Quaternion.identity);
+        pottedPlant = Instantiate(plant, plantPivot.transform.position,
+            plantPivot.transform.rotation);
     }
 
     public void Water()
