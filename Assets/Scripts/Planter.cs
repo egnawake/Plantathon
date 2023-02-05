@@ -12,7 +12,7 @@ public class Planter : MonoBehaviour
 
     private Collider currentCollider;
     private int selectedPlant;
-    private int interactionMode;
+    private Tool activeTool;
     private int coins;
 
     public int Coins {
@@ -60,13 +60,13 @@ public class Planter : MonoBehaviour
 
     public void BeginPlanting()
     {
-        interactionMode = 1;
+        activeTool = Tool.Planter;
         modeText.text = "Planting";
     }
 
     public void BeginSelling()
     {
-        interactionMode = 2;
+        activeTool = Tool.Seller;
         modeText.text = "Selling";
     }
 
@@ -105,19 +105,19 @@ public class Planter : MonoBehaviour
 
     private void ProcessPot(Pot pot)
     {
-        if (interactionMode == 0 && !pot.Placed)
+        if (activeTool == Tool.PotPlacer && !pot.Placed)
         {
             pot.Place();
             return;
         }
 
-        if (interactionMode == 1)
+        if (activeTool == Tool.Planter)
         {
             pot.Plant(plants[SelectedPlant]);
             return;
         }
         
-        if (interactionMode == 2)
+        if (activeTool == Tool.Seller)
         {
             pot.Sell();
             return;
@@ -128,7 +128,7 @@ public class Planter : MonoBehaviour
     {
         SelectedPlant = 0;
         Coins = 100;
-        interactionMode = 0;
+        activeTool = Tool.PotPlacer;
         modeText.text = "Placing pots";
     }
 
@@ -138,7 +138,7 @@ public class Planter : MonoBehaviour
 
         if (Input.GetButtonDown("Cancel"))
         {
-            interactionMode = 0;
+            activeTool = Tool.PotPlacer;
             modeText.text = "Placing pots";
         }
 

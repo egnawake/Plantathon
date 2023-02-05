@@ -525,8 +525,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plants:
-  - {fileID: -1343005892781231693, guid: 9b3bdbb0c737dea44a92788eaf7065bd, type: 3}
+  - {fileID: 5204945924560896920, guid: 9b3bdbb0c737dea44a92788eaf7065bd, type: 3}
   - {fileID: 4372902371739781251, guid: d12752c840a10794a8816c315e6f7f03, type: 3}
+  - {fileID: 7749196540958975200, guid: c300921dd359659dd8f94c2f310b8bb8, type: 3}
+  - {fileID: 1746712634713502211, guid: df83aec2d5768afa1b2ffaeb086e763b, type: 3}
   plantControls: {fileID: 300891312}
   coinsText: {fileID: 371274874}
   modeText: {fileID: 1567581293}
