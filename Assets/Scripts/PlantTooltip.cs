@@ -4,11 +4,13 @@ using TMPro;
 public class PlantTooltip : MonoBehaviour
 {
     [SerializeField] private TMP_Text plantNameText;
-    [SerializeField] private TMP_Text waterLevelText;
-    [SerializeField] private TMP_Text lightLevelText;
+    [SerializeField] private GameObject waterLevelText;
+    [SerializeField] private GameObject lightLevelText;
 
     private RectTransform rectTransform;
     private Vector2 originalPos;
+    private TMP_Text waterLevelTextComponent;
+    private TMP_Text lightLevelTextComponent;
 
     public string PlantName
     {
@@ -23,7 +25,17 @@ public class PlantTooltip : MonoBehaviour
         set
         {
             (int current, int total) = value;
-            waterLevelText.text = $"Water: {current.ToString()}/{total.ToString()}";
+            Debug.Log($"Setting tooltip water; {current}/{total}");
+            if (total <= 0)
+            {
+                waterLevelText.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("Water level requirement > 0");
+                waterLevelText.SetActive(true);
+                waterLevelTextComponent.text = $"Water: {current.ToString()}/{total.ToString()}";
+            }
         }
     }
 
@@ -32,7 +44,15 @@ public class PlantTooltip : MonoBehaviour
         set
         {
             (int current, int total) = value;
-            lightLevelText.text = $"Light: {current.ToString()}/{total.ToString()}";
+            if (total <= 0)
+            {
+                lightLevelText.SetActive(false);
+            }
+            else
+            {
+                lightLevelText.SetActive(true);
+                lightLevelTextComponent.text = $"Light: {current.ToString()}/{total.ToString()}";
+            }
         }
     }
 
@@ -51,5 +71,7 @@ public class PlantTooltip : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         originalPos = rectTransform.anchoredPosition;
         rectTransform.anchoredPosition = new Vector2(-1000f, -1000f);
+        waterLevelTextComponent = waterLevelText.GetComponent<TMP_Text>();
+        lightLevelTextComponent = lightLevelText.GetComponent<TMP_Text>();
     }
 }
