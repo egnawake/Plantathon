@@ -77,6 +77,12 @@ public class Planter : MonoBehaviour
         modeText.text = "Watering";
     }
 
+    public void BeginIlluminating()
+    {
+        activeTool = Tool.Lamp;
+        modeText.text = "Illuminating";
+    }
+
     public bool Buy(int cost)
     {
         if (Coins < cost)
@@ -125,6 +131,9 @@ public class Planter : MonoBehaviour
             plantTooltip.WaterLevel = pot.PottedPlant != null
                 ? (pot.PottedPlant.WaterLevel, pot.PottedPlant.WaterRequired)
                 : (0, -1);
+            plantTooltip.LightLevel = pot.PottedPlant != null
+                ? (pot.PottedPlant.LightLevel, pot.PottedPlant.LightRequired)
+                : (0, -1);
             plantTooltip.Open();
         }
         else
@@ -156,6 +165,12 @@ public class Planter : MonoBehaviour
         if (activeTool == Tool.WateringCan)
         {
             pot.Water();
+            return;
+        }
+
+        if (activeTool == Tool.Lamp)
+        {
+            pot.GiveLight();
             return;
         }
     }

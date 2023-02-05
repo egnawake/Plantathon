@@ -42,6 +42,11 @@ public class Pot : MonoBehaviour
         pottedPlant.Water();
     }
 
+    public void GiveLight()
+    {
+        pottedPlant.GiveLight();
+    }
+
     public void Sell()
     {
         if (pottedPlant == null)

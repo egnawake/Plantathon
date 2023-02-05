@@ -5,6 +5,7 @@ public class PlantTooltip : MonoBehaviour
 {
     [SerializeField] private TMP_Text plantNameText;
     [SerializeField] private TMP_Text waterLevelText;
+    [SerializeField] private TMP_Text lightLevelText;
 
     private RectTransform rectTransform;
     private Vector2 originalPos;
@@ -23,6 +24,15 @@ public class PlantTooltip : MonoBehaviour
         {
             (int current, int total) = value;
             waterLevelText.text = $"Water: {current.ToString()}/{total.ToString()}";
+        }
+    }
+
+    public (int, int) LightLevel
+    {
+        set
+        {
+            (int current, int total) = value;
+            lightLevelText.text = $"Light: {current.ToString()}/{total.ToString()}";
         }
     }
 
