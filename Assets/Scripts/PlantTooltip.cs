@@ -25,14 +25,12 @@ public class PlantTooltip : MonoBehaviour
         set
         {
             (int current, int total) = value;
-            Debug.Log($"Setting tooltip water; {current}/{total}");
             if (total <= 0)
             {
                 waterLevelText.SetActive(false);
             }
             else
             {
-                Debug.Log("Water level requirement > 0");
                 waterLevelText.SetActive(true);
                 waterLevelTextComponent.text = $"Water: {current.ToString()}/{total.ToString()}";
             }
