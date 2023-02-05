@@ -35,7 +35,7 @@ public class Planter : MonoBehaviour
         set
         {
             selectedPlant = value;
-            plantControls.SetSelectedPlant(plants[selectedPlant].gameObject.name);
+            plantControls.SetSelectedPlant(plants[selectedPlant].Name);
         }
     }
 

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d9528f498ee704b9bceb5e0f272a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantName: Shark
   cost: 15
   baseValue: 20
   waterRequired: 0

@@ -698,6 +698,11 @@ MonoBehaviour:
   - {fileID: 7749196540958975200, guid: c300921dd359659dd8f94c2f310b8bb8, type: 3}
   - {fileID: 1746712634713502211, guid: df83aec2d5768afa1b2ffaeb086e763b, type: 3}
   - {fileID: 6702749343174074125, guid: c0bee1243eea843269ab82ca6ac2790c, type: 3}
+  - {fileID: 5113243573426230469, guid: e7da6d56a1bd538f590e61ae88a15a96, type: 3}
+  - {fileID: 4131357309840223930, guid: 3e9697908ecd3554aabfa006da9a3fa4, type: 3}
+  - {fileID: 1480275775328307927, guid: b9691728245385aa0bd59672c275f703, type: 3}
+  - {fileID: 8443439211815655044, guid: 73ce2f4ff59bec62caadb296932730f0, type: 3}
+  - {fileID: 2785373690395101421, guid: 0105b0c6a394e3df1b572040e48685f3, type: 3}
   plantControls: {fileID: 300891312}
   coinsText: {fileID: 371274874}
   modeText: {fileID: 1567581293}

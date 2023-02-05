@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
+    [SerializeField] private string plantName;
     [SerializeField] private int cost;
     [SerializeField] private int baseValue;
     [SerializeField] private int waterRequired;
@@ -13,7 +14,7 @@ public class Plant : MonoBehaviour
     public int Cost => cost;
     public int Value => baseValue;
     public bool ReadyToSell => waterLevel == waterRequired && lightLevel == lightRequired;
-    public string Name => gameObject.name;
+    public string Name => plantName;
     public int WaterLevel => waterLevel;
     public int WaterRequired => waterRequired;
     public int LightLevel => lightLevel;
