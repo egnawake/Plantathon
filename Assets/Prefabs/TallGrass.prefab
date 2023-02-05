@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 15
   baseValue: 20
+  waterRequired: 3
 --- !u!1001 &4245523322745392186
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,9 +36,17 @@ public class Pot : MonoBehaviour
         pottedPlant = Instantiate(plant, plantPivot.transform.position, Quaternion.identity);
     }
 
+    public void Water()
+    {
+        pottedPlant.Water();
+    }
+
     public void Sell()
     {
         if (pottedPlant == null)
+            return;
+
+        if (!pottedPlant.ReadyToSell)
             return;
 
         planter.Coins += pottedPlant.Value;

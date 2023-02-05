@@ -70,6 +70,12 @@ public class Planter : MonoBehaviour
         modeText.text = "Selling";
     }
 
+    public void BeginWatering()
+    {
+        activeTool = Tool.WateringCan;
+        modeText.text = "Watering";
+    }
+
     public bool Buy(int cost)
     {
         if (Coins < cost)
@@ -120,6 +126,12 @@ public class Planter : MonoBehaviour
         if (activeTool == Tool.Seller)
         {
             pot.Sell();
+            return;
+        }
+
+        if (activeTool == Tool.WateringCan)
+        {
+            pot.Water();
             return;
         }
     }
